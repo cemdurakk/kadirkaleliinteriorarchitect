@@ -1,0 +1,1514 @@
+/* 🎯 GENEL RESET ve TEMEL STİLLER */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #fefefe;
+  color: #333;
+}
+
+body.projeler-body {
+  padding-top: 140px;
+}
+
+body.hakkimda-body {
+  padding-top: 140px;
+}
+
+body.iletisim-body {
+  padding-top: 140px;
+}
+
+/* 🧭 SABİT HEADER - Ana Sayfa */
+.site-header {
+  background-color: transparent;
+  padding: 30px 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 0.4s ease;
+  z-index: 999;
+}
+
+.site-header.shrink {
+  background-color: #181818;
+  padding: 15px 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.site-header .logo {
+  max-height: 100px;
+  transition: all 0.3s ease;
+}
+
+.site-header.shrink .logo {
+  max-height: 60px;
+}
+
+/* 🧭 SABİT HEADER - Projeler Sayfası */
+.site-header-projeler {
+  background-color: #181818;
+  padding: 30px 60px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 0.4s ease;
+  z-index: 999;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.site-header-projeler .logo {
+  max-height: 100px;
+  transition: all 0.3s ease;
+}
+
+.site-header-projeler.shrink {
+  background-color: #fff;
+  padding: 15px 40px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* 🔄 NAVIGATION MENÜ */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  height: auto;
+  max-height: 100px;
+  width: auto;
+  max-width: 220px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  height: 2px;
+  background: #ffffff;
+  width: 0;
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* 🖼️ SLIDER (Ana görsel) */
+.hero-slider {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slider-wrapper {
+  position: relative;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: all 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+
+.slide.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.slide.next {
+  transform: scale(1.05);
+  z-index: 1;
+}
+
+.slide.prev {
+  transform: scale(0.95);
+}
+
+.slide.fade {
+  transform: none;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+}
+
+/* HERO Text */
+.hero-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  z-index: 2;
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.hero-text h1 {
+  font-size: 3rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+.hero-text p {
+  font-size: 1.2rem;
+}
+
+.hero-text.slide-in {
+  animation: slideInText 2.5s cubic-bezier(0.4,0,0.2,1);
+}
+@keyframes slideInText {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 20px));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* 🔽 SLIDER KONTROLLERİ */
+.slider-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.arrow {
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+  margin: 0 20px;
+  user-select: none;
+}
+
+.dots {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+}
+
+.dot.active {
+  background-color: white;
+}
+
+/* 🧱 PROJELER ÖNİZLEME */
+.projects-preview {
+  padding: 60px 0;
+  background: #f9f9f9;
+}
+
+.projects-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* 📇 PROFİL KARTI (Sticky) */
+.profile-card {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  grid-template-rows: auto auto 1fr auto;
+  gap: 12px 20px;
+  background: rgb(221, 190, 190);
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+  width: 460px;
+  position: sticky;
+  top: 30px;
+  align-self: flex-start;
+}
+
+.profile-photo img {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #f0f0f0;
+}
+
+.profile-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+  align-self: center;
+}
+
+.profile-title {
+  font-size: 16px;
+  color: #777;
+  letter-spacing: 1px;
+  margin-top: -60px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.profile-content {
+  grid-column: 1 / -1;
+  margin-top: 15px;
+}
+
+.profile-content p {
+  margin: 0 0 16px 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #555;
+}
+
+.profile-signature img {
+  width: 100px;
+  height: 60px;
+  object-fit: cover;
+  margin-left: 250px;
+}
+
+/* PROJE GÖRSELLERİ ALANI */
+.projects-right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* PROJE SATIRLARI */
+.project-row {
+  display: flex;
+  gap: 15px;
+  height: 180px;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-img {
+  flex: 1;
+  overflow: hidden;
+}
+
+.project-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+/* HOVER EFEKTLERİ */
+.project-row:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.project-row:hover img {
+  transform: scale(1.2);
+}
+
+/* PROJE DETAY BUTONU */
+.action-button {
+  position: absolute;
+  right: 200px; /* Buton başlangıçta tamamen gizli */
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: white;
+  border-radius: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  opacity: 0;
+  transition: all 1.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  white-space: nowrap; /* Metin alt satıra kaymasın */
+  z-index: 10; /* Görsellerin üzerinde görünsün */
+}
+
+.project-row:hover .action-button {
+  right: -80px; /* Fotoğrafın sağında belirgin şekilde görünsün */
+  opacity: 1;
+}
+
+.project-row {
+  overflow: visible; /* Butonun dışarı taşması için */
+}
+
+.project-img:last-child {
+  position: relative;
+  z-index: 1; /* Butonun arkasında kalması için */
+}
+
+.arrow-icon {
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+
+.action-button:hover .arrow-icon {
+  transform: translateX(3px);
+}
+
+/* 📱 RESPONSIVE TASARIM */
+@media (max-width: 1024px) {
+  .projects-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .profile-card {
+    width: 100%;
+    position: static;
+  }
+  .project-row {
+    height: 150px;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-card {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+  .profile-photo {
+    margin: 0 auto 20px;
+  }
+  .profile-name, .profile-title {
+    text-align: center;
+  }
+  .project-row {
+    height: 120px;
+    gap: 8px;
+  }
+  .action-button {
+    padding: 8px 15px;
+    font-size: 14px;
+  }
+}
+
+/* 🔁 PROFİL FLIP CARD */
+.profile-card-flip {
+  width: 480px;
+  perspective: 1500px;
+}
+
+.profile-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.profile-card-flip:hover .profile-card-inner {
+  transform: rotateY(180deg);
+}
+
+.profile-card-front, .profile-card-back {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  background-color: #f5f5f5;
+  backface-visibility: hidden;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  padding: 30px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.profile-card-front {
+  background-color: #f3f3f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-img-front {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 20px;
+  border: 3px solid #181818;
+}
+
+.profile-card-front h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 24px;
+  margin: 0;
+  color: #181818;
+}
+
+.profile-card-front p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  color: #181818;
+  margin: 5px 0 0;
+}
+
+.profile-card-back {
+  background-color: #181818;
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: left;
+
+}
+
+.profile-back-header {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.profile-photo {
+  flex-shrink: 0;
+  margin-right: 18px;
+}
+
+.profile-photo img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #afafaf;
+}
+
+.profile-back-info {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+  color: #afafaf;
+}
+
+.profile-back-info .profile-name {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: #afafaf;
+  margin-bottom: 60px;
+}
+
+.profile-back-info .profile-title {
+  font-size: 16px;
+  color: #afafaf;
+  letter-spacing: 1px;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.profile-content {
+  width: 100%;
+  text-align: left;
+  margin: 18px 0 10px 0;
+}
+
+
+.profile-content p {
+  font-size: 15px;
+  color: #afafaf;
+  line-height: 1.6;
+}
+
+
+
+/* 🔄 PLAN vs RENDER GEÇİŞİ */
+.plan-render-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 765px; /* Önceki 900px'in %15 küçüğü */
+  height: 51vh;     /* Önceki 60vh'in %15 küçüğü */
+  min-height: 272px; /* Önceki 320px'in %15 küçüğü */
+  margin: 0 20px 32px 20px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.1);
+  user-select: none;
+}
+
+.plan-render-wrapper .img-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: clip-path 2.7s cubic-bezier(0.4,0,0.2,1), opacity 3.7s cubic-bezier(0.4,0,0.2,1);
+  pointer-events: none;
+}
+
+.plan-render-wrapper .img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.plan-render-wrapper .img-wrapper.render {
+  z-index: 1;
+  clip-path: inset(0 50% 0 0);
+}
+
+.plan-render-wrapper .img-wrapper.karakalem {
+  z-index: 2;
+  clip-path: inset(0 0 0 50%);
+}
+
+.plan-render-wrapper:hover .img-wrapper.render,
+.plan-render-wrapper:hover .img-wrapper.karakalem {
+  clip-path: inset(0 0 0 0);
+  opacity: 1;
+}
+
+/* Koyu Render üzerindeki metin stilleri */
+.plan-render-wrapper .img-wrapper.render .render-text {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 3;
+  width: 40%;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+}
+
+.plan-render-wrapper .img-wrapper.render .render-text h3 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.plan-render-wrapper .img-wrapper.render .render-text p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  color: white;
+  opacity: 0.95;
+}
+
+/* Slider oklarını görselin ortasına hizala */
+.slider-controls .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  font-size: 2.5rem;
+  color: white;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.slider-controls .arrow.left {
+  left: 24px;
+}
+
+.slider-controls .arrow.right {
+  right: 24px;
+}
+
+.slider-controls .dots {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 4;
+  pointer-events: auto;
+}
+
+.site-footer {
+  width: 100%;
+  background: #181818;
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  padding: 0;
+  margin: 0;
+  min-height: 225px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 1px solid #444;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 32px 0 0 0;
+}
+
+.footer-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-col-logo {
+  align-items: flex-start;
+}
+
+.footer-logo {
+  width: 160px;
+  margin-bottom: 8px;
+}
+
+
+.footer-col-slogan {
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-slogan {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: #fff;
+  text-align: center;
+  font-style: italic;
+  font-weight: lighter;
+  letter-spacing: 0.04em;
+  margin-top: 20px;
+}
+
+.footer-col-contact {
+  align-items: flex-end;
+}
+
+.footer-contact-title {
+  font-size: 1.2rem;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.footer-contact-info {
+  font-family: 'Poppins', sans-serif;
+  text-align: right;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ccc2;
+  padding: 10px 0 0 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.footer-social {
+  display: flex;
+  gap: 12px;
+}
+
+.footer-social img {
+  width: 32px;
+  height: 32px;
+  background: #222;
+  border-radius: 6px;
+  padding: 4px;
+  transition: background 0.2s;
+}
+
+.footer-social img:hover {
+  background: #444;
+}
+
+.footer-copyright {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.7rem;
+  color: #fff;
+  opacity: 0.85;
+  letter-spacing: 1px;
+  margin-left: 8px;
+}
+
+@media (max-width: 900px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 0 0 0;
+  }
+  .footer-col-logo, .footer-col-contact {
+    align-items: center;
+  }
+  .footer-col-contact {
+    text-align: center;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 0 0 0;
+  }
+}
+
+/* CONTACT MODERN BÖLÜMÜ */
+.contact-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: #fff;
+  padding: 15px 0 40px 0;
+  margin-left: 200px;
+}
+.contact-flex {
+  max-width: 1200px;
+  width: 95%;
+  margin: 0 auto 32px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+.contact-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  justify-content: center;
+}
+.contact-title {
+  font-size: 3.2rem;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 0;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+.contact-dot {
+  color: #222;
+}
+.contact-desc {
+  font-size: 1.2rem;
+  color: #000000;
+  margin-bottom: 12px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+/* CONTACT SOCIALS GRID TASARIMI */
+.contact-socials {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px 48px;
+  margin-bottom: 8px;
+  margin-top: 24px;
+}
+.contact-social {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  text-decoration: none;
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #333;
+  background: transparent;
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
+  width: fit-content;
+  transition: color 0.2s;
+}
+.contact-social img {
+  width: 54px;
+  height: 54px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.10);
+  padding: 6px;
+}
+.contact-social.linkedin img {
+  background: #000000;
+}
+.contact-social.instagram img {
+  background: #000000;
+}
+.contact-social.whatsapp img {
+  background: #000000;
+}
+.contact-social.linkedin {
+  color: #000000;
+}
+.contact-social.instagram {
+  color: #000000;
+}
+.contact-social.whatsapp {
+  color: #000000;
+}
+.contact-social:hover {
+  text-decoration: underline;
+  opacity: 0.85;
+}
+@media (max-width: 700px) {
+  .contact-socials {
+    grid-template-columns: 1fr;
+    gap: 18px 0;
+  }
+  .contact-social {
+    justify-content: flex-start;
+  }
+}
+
+.contact-image-wrap {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact-image {
+  max-width: 270px;
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: 50%; /* Tam yuvarlak çerçeve */
+  box-shadow: 0 8px 32px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.06);
+  background: #fff;
+  object-fit: cover;
+  border: 4px solid #f3f3f3;
+  display: block;
+  margin: 0 auto;
+}
+.contact-form-wrap {
+  width: 100%;
+  max-width: 900px;
+  background: #fafafa;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+  padding: 36px 32px 32px 32px;
+  margin: 0 auto;
+  margin-top: 70px;
+  margin-left: 300px;
+  margin-bottom: 70px;
+}
+.form-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 24px;
+  font-family: 'Poppins', sans-serif;
+}
+.contact-form {
+  width: 100%;
+}
+.form-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 18px;
+}
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.form-group label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #fff;
+  color: #222;
+  margin-bottom: 2px;
+  transition: border 0.2s;
+}
+.form-group input:focus,
+.form-group textarea:focus {
+  border: 1.5px solid #0077b5;
+  outline: none;
+}
+
+.form-group textarea {
+  resize: none;
+}
+.form-group.full-width {
+  flex: 2;
+}
+.form-submit {
+  background: #222;
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 36px;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s;
+}
+.form-submit:hover {
+  background: #0077b5;
+}
+@media (max-width: 900px) {
+  .contact-flex {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+  .contact-info, .contact-image-wrap {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .contact-info {
+    align-items: center;
+  }
+  .contact-form-wrap {
+    padding: 24px 8px 20px 8px;
+  }
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+
+/* 🎯 HAKKIMDA SAYFASI - 3 Bölümlü Fotoğraf Animasyon Stilleri */
+.hakkimda-main {
+  padding-top: 25px;
+  min-height: 100vh;
+}
+
+.hakkimda-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 70vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.hakkimda-section {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
+}
+
+.hakkimda-section:nth-child(1) {
+  clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+}
+
+.hakkimda-section:nth-child(2) {
+  clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+
+}
+
+.hakkimda-section:nth-child(3) {
+  clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
+
+}
+
+.hakkimda-section:hover {
+  flex: 1.5;
+  transform: scale(1.02);
+  z-index: 10;
+}
+
+.hakkimda-section:not(:hover) {
+  flex: 0.9;
+}
+
+.hakkimda-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hakkimda-section:hover img {
+  transform: scale(1.1);
+}
+
+.hakkimda-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 40px 60px 40px 60px;
+  opacity: 1;
+  transition: all 0.6s ease;
+}
+
+.hakkimda-title {
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  opacity: 1;
+  transition: all 0.6s ease;
+}
+
+.hakkimda-description {
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  transform: translateY(50px);
+  transition: transform 0.3s ease 0.6s, opacity 0.3s ease 0.6s;
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  margin: 0 5px;
+}
+
+.hakkimda-section:hover .hakkimda-description {
+  transform: translateY(0);
+  opacity: 1;
+  max-height: 200px;
+  margin-top: 15px;
+  transition: transform 0.3s ease 0.6s, opacity 0.3s ease 0.6s, max-height 0.4s ease 0.6s, margin-top 0.3s ease 0.6s;
+}
+
+.hakkimda-section:not(:hover) .hakkimda-description {
+  transform: translateY(50px);
+  opacity: 0;
+  max-height: 0;
+  margin-top: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.4s ease, margin-top 0.3s ease;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+  .hakkimda-container {
+    flex-direction: column;
+    height: auto;
+    max-height: none;
+  }
+  
+  .hakkimda-section {
+    height: 60vh;
+    flex: none;
+    clip-path: none;
+    margin-left: 0;
+  }
+  
+  .hakkimda-section:hover {
+    height: 70vh;
+    flex: none;
+  }
+  
+  .hakkimda-section:not(:hover) {
+    height: 50vh;
+    flex: none;
+  }
+  
+  .hakkimda-overlay {
+    padding: 30px 20px;
+  }
+  
+  .hakkimda-title {
+    font-size: 2rem;
+  }
+  
+  .hakkimda-description {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hakkimda-container {
+    height: auto;
+    padding: 0 10px;
+  }
+  
+  .hakkimda-section {
+    height: 50vh;
+  }
+  
+  .hakkimda-section:hover {
+    height: 60vh;
+  }
+  
+  .hakkimda-section:not(:hover) {
+    height: 40vh;
+  }
+  
+  .hakkimda-overlay {
+    padding: 20px 15px;
+  }
+  
+  .hakkimda-title {
+    font-size: 1.5rem;
+  }
+  
+  .hakkimda-description {
+    font-size: 0.9rem;
+  }
+}
+
+/* 🎯 BİZ KİMİZ? BÖLÜMÜ STİLLERİ */
+.biz-kimiz-container {
+  max-width: 1200px;
+  margin: 80px auto 0 auto;
+  padding: 0 20px;
+}
+
+.biz-kimiz-content {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  min-height: 500px;
+}
+
+.biz-kimiz-text {
+  flex: 1;
+  max-width: 600px;
+}
+
+.biz-kimiz-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 40px;
+  line-height: 1.2;
+}
+
+.biz-kimiz-paragraphs {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.biz-kimiz-main-text {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #333;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.biz-kimiz-desc {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.biz-kimiz-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.biz-kimiz-logo-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.biz-kimiz-logo {
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+  filter: brightness(0.9);
+}
+
+.biz-kimiz-logo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.biz-kimiz-brand {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 2px;
+}
+
+.biz-kimiz-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #666;
+  letter-spacing: 1px;
+}
+
+/* Responsive tasarım */
+@media (max-width: 900px) {
+  .biz-kimiz-content {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .biz-kimiz-text {
+    max-width: 100%;
+  }
+  
+  .biz-kimiz-title {
+    font-size: 2.5rem;
+  }
+  
+  .biz-kimiz-main-text {
+    font-size: 1.1rem;
+  }
+  
+  .biz-kimiz-logo {
+    width: 250px;
+  }
+  
+  .biz-kimiz-brand {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .biz-kimiz-container {
+    padding: 0 15px;
+    margin-top: 60px;
+  }
+  
+  .biz-kimiz-title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+  }
+  
+  .biz-kimiz-main-text {
+    font-size: 1rem;
+  }
+  
+  .biz-kimiz-desc {
+    font-size: 0.9rem;
+  }
+  
+  .biz-kimiz-logo {
+    width: 200px;
+  }
+
+}
+
+/* 🎯 PROJELER BAŞLIK ALANI STİLLERİ */
+.projeler-title-section {
+
+  padding: 80px 0 60px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.projeler-title-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  
+  pointer-events: none;
+}
+
+.projeler-title-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.projeler-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3.6rem;
+  font-weight: 400;
+  color: #181818;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+}
+
+.projeler-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 85px;
+  width: calc(100% + 850px);
+  height: 3px;
+  background: linear-gradient(90deg, #181818 0%, #666 100%);
+  border-radius: 2px;
+}
+
+.projeler-title::before {
+  content: 'KADİR KALELİ';
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.63rem;
+  color: #666;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.projeler-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.56rem;
+  color: #666;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 0;
+  opacity: 0.8;
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+}
+
+/* Responsive tasarım için medya sorguları */
+@media (max-width: 768px) {
+  .projeler-title-section {
+    padding: 60px 0 40px 0;
+  }
+  
+  .projeler-title {
+    font-size: 2.4rem;
+    letter-spacing: 1.5px;
+  }
+  
+  .projeler-title::after {
+    left: 60px;
+    width: calc(100% + 360px);
+  }
+  
+  .projeler-title::before {
+    font-size: 0.585rem;
+  }
+  
+  .projeler-subtitle {
+    font-size: 0.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projeler-title-section {
+    padding: 50px 0 30px 0;
+  }
+  
+  .projeler-title {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
+  
+  .projeler-title::after {
+    left: 50px;
+    width: calc(100% + 320px);
+  }
+  
+  .projeler-title::before {
+    font-size: 0.54rem;
+  }
+  
+  .projeler-subtitle {
+    font-size: 0.27rem;
+  }
+}

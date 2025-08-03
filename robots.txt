@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Güvenlik için gizli dosyaları engelle
+Disallow: /.htaccess
+Disallow: /scripts/
+Disallow: /logs/
+Disallow: /error_log
+Disallow: /access_log
+
+# Sitemap
+Sitemap: https://kadirkaleli.com/sitemap.xml 

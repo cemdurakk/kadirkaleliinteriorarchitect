@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Kadir Kaleli ile iletişim. İç mimarlık projeleri için iletişime geçin. Instagram, LinkedIn, WhatsApp ve mail ile ulaşabilirsiniz." />
+  <meta name="keywords" content="Kadir Kaleli iletişim, iç mimar iletişim, iç mimarlık projeleri iletişim, Instagram, LinkedIn, WhatsApp" />
+  <meta name="author" content="Kadir Kaleli" />
+  <meta name="language" content="tr" />
+  <meta property="og:title" content="KK Design | İletişim - Kadir Kaleli" />
+  <meta property="og:description" content="Kadir Kaleli ile iletişim. İç mimarlık projeleri için iletişime geçin." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kadirkaleli.com/iletisim.html" />
+  <meta property="og:image" content="https://kadirkaleli.com/images/KadirKaleliLogoBeyaz.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KK Design | İletişim - Kadir Kaleli" />
+  <meta name="twitter:description" content="Kadir Kaleli ile iletişim. İç mimarlık projeleri için iletişime geçin." />
+  <title>KK Design | İletişim</title>
+
+  <!-- 🎨 CSS ve Google Fontlar -->
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- 🎨 Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<body class="iletisim-body">
+
+  <!-- 🧭 SABİT HEADER -->
+  <header class="site-header-projeler" id="site-header-projeler">
+    <div class="container">
+      <!-- Logo -->
+      <a href="index.html">
+        <img src="images/KadirKaleliLogoBeyaz.png" alt="KK Design Logo" class="logo" />
+      </a>
+      <!-- Menü -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">ANA SAYFA</a></li>
+          <li><a href="projeler.html">PROJELER</a></li>
+          <li><a href="hakkimda.html">HAKKIMDA</a></li>
+          <li><a href="iletisim.html" class="active">İLETİŞİM</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🎯 İLETİŞİM BAŞLIK ALANI -->
+  <section class="projeler-title-section">
+    <div class="container">
+      <h1 class="projeler-title">İletişim</h1>
+      <div class="projeler-subtitle">"HAYALLERİNİ GERÇEĞE DÖNÜŞTÜR."</div>
+    </div>
+  </section>
+
+  <!-- 📬 İLETİŞİM BÖLÜMÜ -->
+  <main class="contact-main">
+
+    <!-- 💬 Sosyal Medya + Portre Görseli -->
+    <div class="contact-flex">
+
+      <!-- Bilgi ve Sosyal Medya -->
+      <div class="contact-info">
+        <p class="contact-desc">
+          Sosyal medya aracılığı ile benimle iletişime geçebilir<br>
+          veya bana mail gönderebilirsiniz.
+        </p>
+
+        <!-- 🌐 Sosyal Linkler -->
+        <div class="contact-socials">
+          <a href="https://www.instagram.com/icmimarkadirkaleli" class="contact-social instagram" target="_blank" rel="noopener noreferrer">
+            <img src="images/instagramBeyaz.png" alt="Instagram" /> Instagram
+          </a>
+          <a href="https://www.linkedin.com/in/kadirkaleli" class="contact-social linkedin" target="_blank" rel="noopener noreferrer">
+            <img src="images/linkedinBeyaz.png" alt="LinkedIn" /> LinkedIn
+          </a>
+          <a href="https://wa.me/905439461284" class="contact-social whatsapp" target="_blank" rel="noopener noreferrer">
+            <img src="images/whatsappBeyaz.png" alt="WhatsApp" /> WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- 🖼️ Portre Görseli -->
+      <div class="contact-image-wrap">
+        <img src="images/mimarSiyahBeyaz.jpg" alt="Kadir Kaleli Karakalem" class="contact-image" />
+      </div>
+    </div>
+
+    <!-- 📩 İLETİŞİM FORMU -->
+    <div class="contact-form-wrap">
+      <h2 class="form-title">Bana mail gönderebilirsiniz.</h2>
+      <form class="contact-form" action="https://formsubmit.co/yasarcemdurak@gmail.com" method="POST" autocomplete="off">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Ad Soyad</label>
+            <input type="text" id="name" name="name" required maxlength="100" pattern="[A-Za-zğüşıöçĞÜŞİÖÇ\s]+" title="Sadece harf ve boşluk karakterleri kullanabilirsiniz" />
+          </div>
+          <div class="form-group">
+            <label for="email">Mail</label>
+            <input type="email" id="email" name="email" required maxlength="254" />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group full-width">
+            <label for="message">Mesaj</label>
+            <textarea id="message" name="message" rows="4" required maxlength="1000" placeholder="Mesajınızı buraya yazın..."></textarea>
+          </div>
+        </div>
+        <button type="submit" class="form-submit">Gönder</button>
+      </form>
+    </div>
+
+  </main>
+
+  <!-- 📜 JavaScript -->
+  <script src="scripts/script.js"></script>
+
+  <!-- 🔚 Footer -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col footer-col-logo">
+        <img src="images/KadirKaleliLogoBeyaz.png" alt="Kadir Kaleli Logo" class="footer-logo" />
+      </div>
+      <div class="footer-col footer-col-slogan">
+        <div class="footer-slogan">"HAYALLERİNİ GERÇEĞE DÖNÜŞTÜR."</div>
+      </div>
+      <div class="footer-col footer-col-contact">
+        <div class="footer-contact-title">BİZE ULAŞIN</div>
+        <div class="footer-contact-info">
+          <div>+90 543 946 12 84</div>
+          <div>info@kadirkaleli.com</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        Telif Hakkı © 2025 Kadir Kaleli - Tüm Hakları Saklıdır.
+      </div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/kadirkaleli" target="_blank" rel="noopener noreferrer"><img src="images/linkedinBeyaz.png" alt="LinkedIn" /></a>
+        <a href="https://www.instagram.com/icmimarkadirkaleli" target="_blank" rel="noopener noreferrer"><img src="images/instagramBeyaz.png" alt="Instagram" /></a>
+      </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

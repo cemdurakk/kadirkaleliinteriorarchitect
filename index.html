@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+  <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta name="robots" content="index, follow" />
+  <meta name="description" content="Kadir Kaleli - İç Mimar. İç mimaride estetiğin ve işlevselliğin buluşma noktası. Modern ve konforlu yaşam alanları tasarlıyoruz." />
+  <meta name="keywords" content="iç mimar, iç mimarlık, tasarım, ev tasarımı, ofis tasarımı, restaurant tasarımı, kafe tasarımı, Kadir Kaleli, KK Design" />
+  <meta name="author" content="Kadir Kaleli" />
+  <meta name="language" content="tr" />
+  <meta property="og:title" content="KK Design | Kadir Kaleli - İç Mimar" />
+  <meta property="og:description" content="İç mimaride estetiğin ve işlevselliğin buluşma noktası. Modern ve konforlu yaşam alanları tasarlıyoruz." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kadirkaleli.com/" />
+  <meta property="og:image" content="https://kadirkaleli.com/images/KadirKaleliLogoBeyaz.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KK Design | Kadir Kaleli - İç Mimar" />
+  <meta name="twitter:description" content="İç mimaride estetiğin ve işlevselliğin buluşma noktası." />
+  <title>KK Design | Ana Sayfa</title>
+
+  <!-- 🎨 Dış CSS dosyası -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- 🔤 Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- 🎨 Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<body>
+  <!-- 🔝 SABİT HEADER: Logo + Menü -->
+  <header class="site-header" id="site-header">
+    <div class="container">
+      <!-- Logo -->
+      <a href="index.html">
+        <img src="images/KadirKaleliLogoBeyaz.png" alt="KK Design Logo" class="logo" />
+      </a>
+      <!-- Navigasyon -->
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="active">ANA SAYFA</a></li>
+          <li><a href="projeler.html">PROJELER</a></li>
+          <li><a href="hakkimda.html">HAKKIMDA</a></li>
+          <li><a href="iletisim.html">İLETİŞİM</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- 🎞️ SLIDER: Ana Sayfa Büyük Görseller -->
+  <section class="hero-slider">
+    <div class="slider-wrapper">
+      <div class="slide active"><img src="images/kitchenRender.png" alt="Ev 1" /></div>
+      <div class="slide"><img src="images/ofisRender.jpg" alt="Ev 2" /></div>
+      <div class="slide"><img src="images/mutfakRenderHD.png" alt="Ev 3" /></div>
+    </div>
+
+    <!-- Slider üzeri yazı -->
+    <div class="hero-text">
+      <h1>Hoş Geldiniz</h1>
+      <p>İç mimaride estetiğin ve işlevselliğin buluşma noktası.</p>
+    </div>
+
+    <!-- Slider yönlendirme kontrolleri -->
+    <div class="slider-controls">
+      <div class="arrow left" onclick="changeSlide(-1)">&#10094;</div>
+      <div class="dots">
+        <div class="dot active" onclick="goToSlide(0)"></div>
+        <div class="dot" onclick="goToSlide(1)"></div>
+        <div class="dot" onclick="goToSlide(2)"></div>
+      </div>
+      <div class="arrow right" onclick="changeSlide(1)">&#10095;</div>
+    </div>
+  </section>
+
+  <!-- 🔁 PROJE ÖNİZLEME + PROFİL KARTI -->
+  <section class="projects-preview">
+    <div class="projects-container">
+      
+      <!-- 🎭 FLIP CARD: Kadir Kaleli profili -->
+      <div class="profile-card-flip">
+        <div class="profile-card-inner">
+
+          <!-- Ön Yüz -->
+          <div class="profile-card-front">
+            <img src="images/mimar.jpg" alt="Kadir Kaleli" class="profile-img-front" />
+            <h3>Kadir KALELİ</h3>
+            <p>İç Mimar</p>
+          </div>
+
+          <!-- Arka Yüz -->
+          <div class="profile-card-back">
+            <div class="profile-back-header">
+              <div class="profile-photo">
+                <img src="images/mimarSiyahBeyaz.jpg" alt="Kadir Kaleli">
+              </div>
+              <div class="profile-back-info">
+                <div class="profile-name">Kadir KALELİ</div>
+                <div class="profile-title">İÇ MİMAR</div>
+              </div>
+            </div>
+            <div class="profile-content">
+              <p>İç mimarlıkta sadelik ve doğallığın izini süren bir tasarım anlayışına sahibim. Mekânları sadece yaşanacak alanlar olarak değil, birer deneyim sahası olarak ele alıyorum.</p>
+              <p>Doğadan ilham alarak sade çizgilerle huzur veren atmosferler oluşturuyorum. Her projemde işlevselliği estetikle harmanlamayı temel ilke ediniyorum.</p>
+              <p>Kullanıcı ihtiyaçlarını merkeze alarak uzun ömürlü ve zamansız tasarımlar üretmeye çalışıyorum. Malzeme seçiminde doğallık ve sürdürülebilirliği önceliklendiriyorum.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- 📸 PROJELER: Görseller + Buton -->
+      <div class="projects-right">
+        
+        <!-- Proje Satırı 1 -->
+        <div class="project-row">
+          <div class="project-img"><img src="images/cajunGebze.jpg" alt="Proje 2 Foto 1" /></div>
+          <div class="project-img"><img src="images/cajunGebze1.jpg" alt="Proje 2 Foto 2" /></div>
+          <div class="project-img"><img src="images/cajunGebze2.jpg" alt="Proje 2 Foto 3" /></div>
+          <div class="project-img"><img src="images/cajunGebze3.jpg" alt="Proje 2 Foto 4" /></div>
+          <div class="action-button"><span class="arrow-icon">→</span><span>Projeyi İncele</span></div>
+        </div>
+
+
+        <!-- Proje Satırı 2 -->
+        <div class="project-row">
+          <div class="project-img"><img src="images/dilovası2.jpg" alt="Proje 1 Foto 1" /></div>
+          <div class="project-img"><img src="images/dilovası3.jpg" alt="Proje 1 Foto 2" /></div>
+          <div class="project-img"><img src="images/dilovası1.jpg" alt="Proje 1 Foto 3" /></div>
+          <div class="project-img"><img src="images/dilovası4.jpg" alt="Proje 1 Foto 4" /></div>
+          <div class="action-button"><span class="arrow-icon">→</span><span>Projeyi İncele</span></div>
+        </div>
+
+        <!-- Proje Satırı 3 -->
+        <div class="project-row">
+          <div class="project-img"><img src="images/cajunBeylikduzu1.jpg" alt="Proje 3 Foto 1" /></div>
+          <div class="project-img"><img src="images/cajunBeylikduzu2.jpg" alt="Proje 3 Foto 2" /></div>
+          <div class="project-img"><img src="images/cajunBeylikduzu3.jpg" alt="Proje 3 Foto 3" /></div>
+          <div class="project-img"><img src="images/cajunBeylikduzu4.jpg" alt="Proje 3 Foto 4" /></div>
+          <div class="action-button"><span class="arrow-icon">→</span><span>Projeyi İncele</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 📜 JavaScript dosyası -->
+  <script src="scripts/script.js"></script>
+
+  <!-- 🔚 Footer Bölümü -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-col footer-col-logo">
+        <img src="images/KadirKaleliLogoBeyaz.png" alt="Kadir Kaleli Logo" class="footer-logo" />
+      </div>
+      <div class="footer-col footer-col-slogan">
+        <div class="footer-slogan">"HAYALLERİNİ GERÇEĞE DÖNÜŞTÜR."</div>
+      </div>
+      <div class="footer-col footer-col-contact">
+        <div class="footer-contact-title">BİZE ULAŞIN</div>
+        <div class="footer-contact-info">
+          <div>+90 543 946 12 84</div>
+          <div>info@kadirkaleli.com</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copyright">
+        Telif Hakkı © 2025 Kadir Kaleli - Tüm Hakları Saklıdır.
+      </div>
+      <div class="footer-social">
+        <a href="https://www.linkedin.com/in/kadirkaleli" target="_blank" rel="noopener noreferrer"><img src="images/linkedinBeyaz.png" alt="LinkedIn" /></a>
+        <a href="https://www.instagram.com/icmimarkadirkaleli" target="_blank" rel="noopener noreferrer"><img src="images/instagramBeyaz.png" alt="Instagram" /></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
