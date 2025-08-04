@@ -659,8 +659,10 @@ body.iletisim-body {
   padding: 36px 32px 32px 32px;
   margin: 0 auto;
   margin-top: 70px;
-  margin-left: 300px;
   margin-bottom: 70px;
+  margin-left: 300px;
+  position: relative;
+  left: 0;
 }
 .form-title {
   font-size: 2rem;
@@ -730,6 +732,18 @@ body.iletisim-body {
 .form-submit:hover {
   background: #0077b5;
 }
+@media (max-width: 1200px) {
+  .contact-form-wrap {
+    margin-left: 200px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .contact-form-wrap {
+    margin-left: 100px;
+  }
+}
+
 @media (max-width: 900px) {
   .contact-flex {
     flex-direction: column;
@@ -745,11 +759,34 @@ body.iletisim-body {
     align-items: center;
   }
   .contact-form-wrap {
-    padding: 24px 8px 20px 8px;
+    padding: 24px 20px 20px 20px;
+    margin: 0 20px;
+    max-width: calc(100% - 40px);
+    margin-left: 0;
   }
   .form-row {
     flex-direction: column;
     gap: 0;
+  }
+}
+
+/* Mobil tasarım için ek düzenlemeler */
+@media (max-width: 768px) {
+  .contact-form-wrap {
+    padding: 20px 15px;
+    margin: 0 15px;
+    max-width: calc(100% - 30px);
+    margin-left: 0; /* Mobilde sola kaydırmayı kaldır */
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px; /* iOS'ta zoom'u önler */
   }
 }
 
