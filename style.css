@@ -1,3 +1,37 @@
+/* 🎯 VIEWPORT-BASED SCALING SİSTEMİ - Tüm ekranlarda orantılı görünüm */
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#viewport-container {
+  width: 100vw;   /* Ekran genişliğinin tamamı */
+  height: 100vh;  /* Ekran yüksekliğinin tamamı */
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: top left;
+  /* Scale değeri JavaScript ile eklenecek */
+}
+
+/* Sadece projeler, hakkımda ve iletişim sayfaları için */
+body.projeler-body #viewport-container,
+body.hakkimda-body #viewport-container,
+body.iletisim-body #viewport-container {
+  position: relative;
+  top: 30px; /* Header yüksekliği kadar aşağıda başla */
+}
+
+/* Hakkımda sayfasında footer ile yazı arasına boşluk */
+body.hakkimda-body .site-footer {
+  margin-top: 100px;
+}
+
+/* Projeler sayfasında footer ile render'lar arasına boşluk */
+body.projeler-body .site-footer {
+  margin-top: 100px;
+}
+
 /* 🎯 GENEL RESET ve TEMEL STİLLER */
 * {
   margin: 0;
@@ -237,333 +271,6 @@ body.iletisim-body {
   background-color: white;
 }
 
-/* 🧱 PROJELER ÖNİZLEME */
-.projects-preview {
-  padding: 60px 0;
-  background: #f9f9f9;
-}
-
-.projects-container {
-  display: flex;
-  justify-content: space-between;
-  gap: 60px;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* 📇 PROFİL KARTI (Sticky) */
-.profile-card {
-  display: grid;
-  grid-template-columns: 140px 1fr;
-  grid-template-rows: auto auto 1fr auto;
-  gap: 12px 20px;
-  background: rgb(221, 190, 190);
-  border-radius: 16px;
-  padding: 25px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
-  width: 460px;
-  position: sticky;
-  top: 30px;
-  align-self: flex-start;
-}
-
-.profile-photo img {
-  width: 140px;
-  height: 140px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #f0f0f0;
-}
-
-.profile-name {
-  font-family: 'Poppins', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: #222;
-  margin: 0;
-  align-self: center;
-}
-
-.profile-title {
-  font-size: 16px;
-  color: #777;
-  letter-spacing: 1px;
-  margin-top: -60px;
-  font-family: 'Poppins', sans-serif;
-}
-
-.profile-content {
-  grid-column: 1 / -1;
-  margin-top: 15px;
-}
-
-.profile-content p {
-  margin: 0 0 16px 0;
-  font-size: 15px;
-  line-height: 1.7;
-  color: #555;
-}
-
-.profile-signature img {
-  width: 100px;
-  height: 60px;
-  object-fit: cover;
-  margin-left: 250px;
-}
-
-/* PROJE GÖRSELLERİ ALANI */
-.projects-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-/* PROJE SATIRLARI */
-.project-row {
-  display: flex;
-  gap: 15px;
-  height: 180px;
-  position: relative;
-  border-radius: 10px;
-  overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.project-img {
-  flex: 1;
-  overflow: hidden;
-}
-
-.project-img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.4s ease;
-}
-
-/* HOVER EFEKTLERİ */
-.project-row:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.project-row:hover img {
-  transform: scale(1.2);
-}
-
-/* PROJE DETAY BUTONU */
-.action-button {
-  position: absolute;
-  right: 200px; /* Buton başlangıçta tamamen gizli */
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 8px 16px;
-  background: white;
-  border-radius: 30px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  color: #333;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-  opacity: 0;
-  transition: all 1.1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  white-space: nowrap; /* Metin alt satıra kaymasın */
-  z-index: 10; /* Görsellerin üzerinde görünsün */
-}
-
-.project-row:hover .action-button {
-  right: -80px; /* Fotoğrafın sağında belirgin şekilde görünsün */
-  opacity: 1;
-}
-
-.project-row {
-  overflow: visible; /* Butonun dışarı taşması için */
-}
-
-.project-img:last-child {
-  position: relative;
-  z-index: 1; /* Butonun arkasında kalması için */
-}
-
-.arrow-icon {
-  font-weight: bold;
-  transition: transform 0.3s ease;
-}
-
-.action-button:hover .arrow-icon {
-  transform: translateX(3px);
-}
-
-/* 📱 RESPONSIVE TASARIM */
-@media (max-width: 1024px) {
-  .projects-container {
-    flex-direction: column;
-    gap: 40px;
-  }
-  .profile-card {
-    width: 100%;
-    position: static;
-  }
-  .project-row {
-    height: 150px;
-  }
-}
-
-@media (max-width: 576px) {
-  .profile-card {
-    grid-template-columns: 1fr;
-    padding: 20px;
-  }
-  .profile-photo {
-    margin: 0 auto 20px;
-  }
-  .profile-name, .profile-title {
-    text-align: center;
-  }
-  .project-row {
-    height: 120px;
-    gap: 8px;
-  }
-  .action-button {
-    padding: 8px 15px;
-    font-size: 14px;
-  }
-}
-
-/* 🔁 PROFİL FLIP CARD */
-.profile-card-flip {
-  width: 480px;
-  perspective: 1500px;
-}
-
-.profile-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  transition: transform 1s;
-  transform-style: preserve-3d;
-}
-
-.profile-card-flip:hover .profile-card-inner {
-  transform: rotateY(180deg);
-}
-
-.profile-card-front, .profile-card-back {
-  width: 100%;
-  height: 100%;
-  border-radius: 20px;
-  background-color: #f5f5f5;
-  backface-visibility: hidden;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  padding: 30px;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.profile-card-front {
-  background-color: #f3f3f3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.profile-img-front {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 20px;
-  border: 3px solid #181818;
-}
-
-.profile-card-front h3 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 24px;
-  margin: 0;
-  color: #181818;
-}
-
-.profile-card-front p {
-  font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  color: #181818;
-  margin: 5px 0 0;
-}
-
-.profile-card-back {
-  background-color: #181818;
-  transform: rotateY(180deg);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  text-align: left;
-
-}
-
-.profile-back-header {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 100%;
-  margin-bottom: 10px;
-}
-
-.profile-photo {
-  flex-shrink: 0;
-  margin-right: 18px;
-}
-
-.profile-photo img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid #afafaf;
-}
-
-.profile-back-info {
-  display: flex;
-  flex-direction: column;
-  margin-top: 40px;
-  color: #afafaf;
-}
-
-.profile-back-info .profile-name {
-  font-family: 'Poppins', sans-serif;
-  font-size: 28px;
-  font-weight: 700;
-  color: #afafaf;
-  margin-bottom: 60px;
-}
-
-.profile-back-info .profile-title {
-  font-size: 16px;
-  color: #afafaf;
-  letter-spacing: 1px;
-  font-family: 'Poppins', sans-serif;
-}
-
-
-.profile-content {
-  width: 100%;
-  text-align: left;
-  margin: 18px 0 10px 0;
-}
-
-
-.profile-content p {
-  font-size: 15px;
-  color: #afafaf;
-  line-height: 1.6;
-}
 
 
 
@@ -1102,7 +809,7 @@ body.iletisim-body {
 .hakkimda-section img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -1153,6 +860,7 @@ body.iletisim-body {
   max-height: 0;
   overflow: hidden;
   margin: 0 5px;
+  margin-right: 20px;
 }
 
 .hakkimda-section:hover .hakkimda-description {
@@ -1261,7 +969,7 @@ body.iletisim-body {
 
 .biz-kimiz-title {
   font-family: 'Poppins', sans-serif;
-  font-size: 3.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #333;
   margin-bottom: 40px;
@@ -1431,9 +1139,9 @@ body.iletisim-body {
 .projeler-title::after {
   content: '';
   position: absolute;
-  bottom: -10px;
-  left: 85px;
-  width: calc(100% + 850px);
+  bottom: -7px;
+  left: 80px;
+  width: 1130px;
   height: 3px;
   background: linear-gradient(90deg, #181818 0%, #666 100%);
   border-radius: 2px;

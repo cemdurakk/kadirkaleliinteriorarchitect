@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=1920, initial-scale=1.0"/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="X-Frame-Options" content="DENY" />
   <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
@@ -35,6 +35,7 @@
 </head>
 
 <body class="projeler-body">
+  <div id="viewport-container">
   <!-- 🧭 SABİT HEADER (Projeler Sayfası) -->
   <header class="site-header-projeler" id="site-header-projeler">
     <div class="container">
@@ -200,7 +201,7 @@
   </div>
 
   <!-- 6. SATIR: 2 PROJE YAN YANA -->
-  <div class="plan-render-row" style="display: flex; justify-content: center; align-items: center; gap: 40px;">
+  <div class="plan-render-row" style="display: flex; justify-content: center; align-items: center; gap: 40px; margin-top: 40px;">
     <section class="plan-render-wrapper">
       <div class="img-wrapper render">
         <img src="images/merdivenRenderKoyu.png" alt="Koyu Render" />
@@ -227,9 +228,6 @@
     </section>
   </div>
 
-  <!-- 📜 JS -->
-  <script src="scripts/script.js"></script>
-
   <!-- 🔚 Footer -->
   <footer class="site-footer">
     <div class="footer-content">
@@ -240,10 +238,10 @@
         <div class="footer-slogan">"HAYALLERİNİ GERÇEĞE DÖNÜŞTÜR."</div>
       </div>
       <div class="footer-col footer-col-contact">
-        <div class="footer-contact-title">BİZE ULAŞIN</div>
+        <div class="footer-contact-title">BANA ULAŞIN</div>
         <div class="footer-contact-info">
           <div>+90 543 946 12 84</div>
-          <div>info@kadirkaleli.com</div>
+          <div>kadirkalelidesign@gmail.com</div>
         </div>
       </div>
     </div>
@@ -258,5 +256,9 @@
       </div>
     </div>
   </footer>
+  </div>
+
+  <!-- 📜 JS -->
+  <script src="scripts/script.js"></script>
 </body>
 </html>

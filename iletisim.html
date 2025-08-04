@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=1920, initial-scale=1.0"/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="X-Frame-Options" content="DENY" />
   <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
@@ -35,6 +35,7 @@
 </head>
 
 <body class="iletisim-body">
+  <div id="viewport-container">
 
   <!-- 🧭 SABİT HEADER -->
   <header class="site-header-projeler" id="site-header-projeler">
@@ -99,7 +100,7 @@
     <!-- 📩 İLETİŞİM FORMU -->
     <div class="contact-form-wrap">
       <h2 class="form-title">Bana mail gönderebilirsiniz.</h2>
-      <form class="contact-form" action="https://formsubmit.co/yasarcemdurak@gmail.com" method="POST" autocomplete="off">
+      <form class="contact-form" id="contactForm" autocomplete="off">
         <div class="form-row">
           <div class="form-group">
             <label for="name">Ad Soyad</label>
@@ -122,9 +123,6 @@
 
   </main>
 
-  <!-- 📜 JavaScript -->
-  <script src="scripts/script.js"></script>
-
   <!-- 🔚 Footer -->
   <footer class="site-footer">
     <div class="footer-content">
@@ -135,10 +133,10 @@
         <div class="footer-slogan">"HAYALLERİNİ GERÇEĞE DÖNÜŞTÜR."</div>
       </div>
       <div class="footer-col footer-col-contact">
-        <div class="footer-contact-title">BİZE ULAŞIN</div>
+        <div class="footer-contact-title">BANA ULAŞIN</div>
         <div class="footer-contact-info">
           <div>+90 543 946 12 84</div>
-          <div>info@kadirkaleli.com</div>
+          <div>kadirkalelidesign@gmail.com</div>
         </div>
       </div>
     </div>
@@ -153,5 +151,9 @@
       </div>
     </div>
   </footer>
+  </div>
+
+  <!-- 📜 JavaScript -->
+  <script src="scripts/script.js"></script>
 </body>
 </html>

@@ -1,3 +1,24 @@
+// ================================
+// 🎯 VIEWPORT-BASED SCALING SİSTEMİ - Tüm ekranlarda orantılı görünüm
+// ================================
+function scaleViewport() {
+  const container = document.getElementById('viewport-container');
+  if (!container) return;
+  
+  // Artık scale etmeye gerek yok, site zaten ekranın tamamını kaplıyor
+  // Sadece içeriği ekran boyutuna göre ayarlayalım
+  const ww = window.innerWidth;
+  const wh = window.innerHeight;
+  
+  // İçeriği ekran boyutuna göre ayarla
+  container.style.width = `${ww}px`;
+  container.style.height = `${wh}px`;
+}
+
+// Viewport boyutu değiştiğinde ve sayfa yüklendiğinde güncelle
+window.addEventListener('resize', scaleViewport);
+window.addEventListener('DOMContentLoaded', scaleViewport);
+
 document.addEventListener("DOMContentLoaded", function () {
   // ================================
   // 📦 SLIDER (Ana Sayfa) Bölümü
@@ -183,4 +204,26 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   });
+
+  // ================================
+  // 📧 İLETİŞİM FORMU - Mailto Fonksiyonu
+  // ================================
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      // Mailto linki oluştur
+      const subject = encodeURIComponent('KK Design - İletişim Formu');
+      const body = encodeURIComponent(`Ad Soyad: ${name}\n\nE-posta: ${email}\n\nMesaj:\n${message}`);
+      const mailtoLink = `mailto:kadirkalelidesign@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Mail uygulamasını aç
+      window.location.href = mailtoLink;
+    });
+  }
 });
