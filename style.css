@@ -1220,3 +1220,146 @@ body.iletisim-body {
     font-size: 0.27rem;
   }
 }
+
+/* 🎯 MOBİL TASARIM - Modern ve şık mobil görünüm */
+@media (max-width: 768px) {
+  /* Mobil Header */
+  .site-header, .site-header-projeler {
+    padding: 15px 20px;
+    background-color: #181818;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+  }
+
+  .site-header .logo, .site-header-projeler .logo {
+    max-height: 40px;
+  }
+
+  /* Hamburger Menü */
+  .nav-links {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #181818;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 10px 0;
+    display: block;
+  }
+
+  /* Hamburger İkonu */
+  .hamburger {
+    display: block;
+    cursor: pointer;
+    background: none;
+    border: none;
+    padding: 5px;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: 0.3s;
+  }
+
+  .hamburger.active span:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  /* Desktop menüyü gizle */
+  .desktop-nav {
+    display: none;
+  }
+
+  /* Ana içerik alanı */
+  #viewport-container {
+    width: 100%;
+    height: auto;
+    position: relative;
+    top: 0;
+    padding-top: 70px;
+  }
+
+  /* Slider mobil uyumlu */
+  .hero-slider {
+    height: 60vh;
+    min-height: 400px;
+  }
+
+  .hero-text h1 {
+    font-size: 28px;
+  }
+
+  .hero-text p {
+    font-size: 16px;
+  }
+
+  /* Projeler sayfası mobil */
+  .plan-render-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .plan-render-wrapper {
+    width: 100%;
+    height: 300px;
+  }
+
+  /* İletişim sayfası mobil */
+  .contact-flex {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .contact-info {
+    text-align: center;
+  }
+
+  .contact-socials {
+    justify-content: center;
+  }
+
+  .contact-form-wrap {
+    padding: 20px;
+  }
+
+  /* Footer mobil */
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

@@ -226,4 +226,25 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = mailtoLink;
     });
   }
+
+  // ================================
+  // 📱 HAMBURGER MENÜ - Mobil navigasyon
+  // ================================
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', function() {
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Menü linklerine tıklandığında menüyü kapat
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', function() {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+  }
 });
