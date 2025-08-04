@@ -68,6 +68,11 @@ body.iletisim-body {
   z-index: 999;
 }
 
+/* Hamburger menü varsayılan olarak gizli */
+.hamburger {
+  display: none;
+}
+
 .site-header.shrink {
   background-color: #181818;
   padding: 15px 40px;
@@ -113,6 +118,7 @@ body.iletisim-body {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
 .logo {
@@ -1237,40 +1243,14 @@ body.iletisim-body {
     max-height: 40px;
   }
 
-  /* Hamburger Menü */
-  .nav-links {
-    display: none;
-    position: fixed;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background-color: #181818;
-    flex-direction: column;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .nav-links li {
-    margin: 15px 0;
-  }
-
-  .nav-links a {
-    font-size: 18px;
-    padding: 10px 0;
-    display: block;
-  }
-
   /* Hamburger İkonu */
   .hamburger {
-    display: block;
+    display: block !important;
     cursor: pointer;
     background: none;
     border: none;
     padding: 5px;
+    z-index: 1001;
   }
 
   .hamburger span {
@@ -1296,7 +1276,36 @@ body.iletisim-body {
 
   /* Desktop menüyü gizle */
   .desktop-nav {
+    display: none !important;
+  }
+
+  /* Mobil Menü */
+  .nav-links {
     display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: #181818;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    z-index: 999;
+  }
+
+  .nav-links.active {
+    display: flex !important;
+  }
+
+  .nav-links li {
+    margin: 15px 0;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+    padding: 10px 0;
+    display: block;
+    color: white;
   }
 
   /* Ana içerik alanı */
@@ -1337,6 +1346,7 @@ body.iletisim-body {
   .contact-flex {
     flex-direction: column;
     gap: 30px;
+    padding: 20px;
   }
 
   .contact-info {
@@ -1345,13 +1355,27 @@ body.iletisim-body {
 
   .contact-socials {
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .contact-form-wrap {
     padding: 20px;
   }
 
-  /* Footer mobil */
+  .contact-image-wrap {
+    text-align: center;
+  }
+
+  .contact-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Footer mobil - daha kısa */
+  .site-footer {
+    padding: 30px 20px;
+  }
+
   .footer-content {
     flex-direction: column;
     text-align: center;
@@ -1361,5 +1385,18 @@ body.iletisim-body {
   .footer-bottom {
     flex-direction: column;
     gap: 15px;
+    margin-top: 20px;
+  }
+
+  .footer-logo {
+    max-height: 40px;
+  }
+
+  .footer-slogan {
+    font-size: 14px;
+  }
+
+  .footer-contact-info {
+    font-size: 14px;
   }
 }
