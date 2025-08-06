@@ -226,4 +226,41 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = mailtoLink;
     });
   }
+
+  // ================================
+  // 📩 MODERN İLETİŞİM KARTI - Mailto Fonksiyonu
+  // ================================
+  const contactCardForm = document.getElementById('contactCardForm');
+  if (contactCardForm) {
+    contactCardForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const message = document.querySelector('.contact-card-textarea').value;
+      
+      if (!message.trim()) {
+        alert('Lütfen bir mesaj yazın.');
+        return;
+      }
+      
+      // Mailto linki oluştur
+      const subject = encodeURIComponent('KK Design - İletişim');
+      const body = encodeURIComponent(`Mesaj:\n\n${message}`);
+      const mailtoLink = `mailto:kadirkalelidesign@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Mail uygulamasını aç
+      window.location.href = mailtoLink;
+    });
+  }
+
+  // ================================
+// 🍔 MOBİL MENÜ TOGGLE
+// ================================
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", function () {
+    navLinks.classList.toggle("active");
+  });
+}
 });
