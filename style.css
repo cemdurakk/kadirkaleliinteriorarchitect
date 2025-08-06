@@ -1,38 +1,50 @@
-/* 🎯 VIEWPORT-BASED SCALING SİSTEMİ - Tüm ekranlarda orantılı görünüm */
+/* ========================================
+   🎯 KK PORTFOLIO - MAIN STYLESHEET
+   ======================================== */
+
+/* ========================================
+   📱 VIEWPORT-BASED SCALING SİSTEMİ
+   ======================================== */
 html, body {
   margin: 0;
   padding: 0;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
 #viewport-container {
-  width: 100vw;   /* Ekran genişliğinin tamamı */
-  height: 100vh;  /* Ekran yüksekliğinin tamamı */
+  width: 100vw;
+  height: 100vh;
   position: absolute;
   left: 0;
   top: 0;
   transform-origin: top left;
-  /* Scale değeri JavaScript ile eklenecek */
 }
 
-/* Sadece projeler, hakkımda ve iletişim sayfaları için */
+/* Sayfa özel ayarları */
 body.projeler-body #viewport-container,
 body.hakkimda-body #viewport-container,
 body.iletisim-body #viewport-container {
   position: relative;
-  top: 30px; /* Header yüksekliği kadar aşağıda başla */
+  top: 30px;
 }
 
-/* Hakkımda sayfasında footer ile yazı arasına boşluk */
+/* Footer boşlukları */
 body.hakkimda-body .site-footer {
   margin-top: 100px;
 }
 
-/* Projeler sayfasında footer ile render'lar arasına boşluk */
 body.projeler-body .site-footer {
   margin-top: 100px;
 }
 
-/* 🎯 GENEL RESET ve TEMEL STİLLER */
+/* ========================================
+   🎨 GENEL RESET ve TEMEL STİLLER
+   ======================================== */
 * {
   margin: 0;
   padding: 0;
@@ -41,23 +53,29 @@ body.projeler-body .site-footer {
 
 body {
   font-family: 'Poppins', sans-serif;
+  font-weight: 400; /* minimum 400 olsun */
   background-color: #fefefe;
   color: #333;
+
+  /* Yazı kalitesini artıran cross-browser ayarlar */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-smooth: always;
+  text-rendering: optimizeLegibility;
 }
 
-body.projeler-body {
-  padding-top: 140px;
-}
-
-body.hakkimda-body {
-  padding-top: 140px;
-}
-
+/* Sayfa özel padding'ler */
+body.projeler-body,
+body.hakkimda-body,
 body.iletisim-body {
   padding-top: 140px;
 }
 
-/* 🧭 SABİT HEADER - Ana Sayfa */
+/* ========================================
+   🧭 HEADER STİLLERİ
+   ======================================== */
+
+/* Ana Sayfa Header */
 .site-header {
   background-color: transparent;
   padding: 30px 60px;
@@ -83,7 +101,7 @@ body.iletisim-body {
   max-height: 60px;
 }
 
-/* 🧭 SABİT HEADER - Projeler Sayfası */
+/* Projeler Sayfası Header */
 .site-header-projeler {
   background-color: #181818;
   padding: 30px 60px;
@@ -106,9 +124,12 @@ body.iletisim-body {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
 }
 
-/* 🔄 NAVIGATION MENÜ */
+/* ========================================
+   🔄 NAVIGATION MENÜ
+   ======================================== */
 .container {
   max-width: 1200px;
+  padding: 0 20px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -155,22 +176,28 @@ body.iletisim-body {
   width: 100%;
 }
 
-/* 🖼️ SLIDER (Ana görsel) */
+/* ========================================
+   🖼️ SLIDER STİLLERİ
+   ======================================== */
 .hero-slider {
   position: relative;
   height: 100vh;
+  min-height: 100vh;
   overflow: hidden;
 }
 
 .slider-wrapper {
   position: relative;
-  height: 100%;
+  min-height: 500px;
+  height: 100vh;
+  max-height: 100vh;
 }
 
 .slide {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  min-height: 100vh;
   opacity: 0;
   transition: all 1s cubic-bezier(0.55, 0.085, 0.68, 0.53);
 }
@@ -195,7 +222,9 @@ body.iletisim-body {
 
 .slide img {
   width: 100%;
-  height: 100%;
+  height: 100vh;
+  min-height: 100vh;
+  object-fit: cover;
 }
 
 /* HERO Text */
@@ -213,17 +242,18 @@ body.iletisim-body {
 }
 
 .hero-text h1 {
-  font-size: 3rem;
+  font-size: clamp(1.5rem, 4vw, 3rem);
   font-family: 'Poppins', sans-serif;
 }
 
 .hero-text p {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2vw, 1.2rem);
 }
 
 .hero-text.slide-in {
   animation: slideInText 2.5s cubic-bezier(0.4,0,0.2,1);
 }
+
 @keyframes slideInText {
   from {
     opacity: 0;
@@ -271,16 +301,54 @@ body.iletisim-body {
   background-color: white;
 }
 
+/* Slider oklarını görselin ortasına hizala */
+.slider-controls .arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 4;
+  font-size: 2.5rem;
+  color: white;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
 
+.slider-controls .arrow.left {
+  left: 24px;
+}
 
+.slider-controls .arrow.right {
+  right: 24px;
+}
 
-/* 🔄 PLAN vs RENDER GEÇİŞİ */
+.slider-controls .dots {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 4;
+  pointer-events: auto;
+}
+
+/* ========================================
+   🔄 PLAN vs RENDER GEÇİŞİ
+   ======================================== */
 .plan-render-wrapper {
   position: relative;
   width: 100%;
-  max-width: 765px; /* Önceki 900px'in %15 küçüğü */
-  height: 51vh;     /* Önceki 60vh'in %15 küçüğü */
-  min-height: 272px; /* Önceki 320px'in %15 küçüğü */
+  max-width: 765px;
+  aspect-ratio: 4 / 3;
+  max-height: 600px;
+  min-height: 280px;
+  height: auto;
   margin: 0 20px 32px 20px;
   overflow: hidden;
   background: #fff;
@@ -350,43 +418,12 @@ body.iletisim-body {
   opacity: 0.95;
 }
 
-/* Slider oklarını görselin ortasına hizala */
-.slider-controls .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 4;
-  font-size: 2.5rem;
-  color: white;
-  border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  pointer-events: auto;
-}
 
-.slider-controls .arrow.left {
-  left: 24px;
-}
 
-.slider-controls .arrow.right {
-  right: 24px;
-}
 
-.slider-controls .dots {
-  position: absolute;
-  bottom: 32px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 10px;
-  z-index: 4;
-  pointer-events: auto;
-}
-
+/* ========================================
+   🦶 FOOTER STİLLERİ
+   ======================================== */
 .site-footer {
   width: 100%;
   background: #181818;
@@ -426,7 +463,6 @@ body.iletisim-body {
   width: 160px;
   margin-bottom: 8px;
 }
-
 
 .footer-col-slogan {
   align-items: center;
@@ -501,27 +537,9 @@ body.iletisim-body {
   margin-left: 8px;
 }
 
-@media (max-width: 900px) {
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-    padding: 24px 0 0 0;
-  }
-  .footer-col-logo, .footer-col-contact {
-    align-items: center;
-  }
-  .footer-col-contact {
-    text-align: center;
-  }
-  .footer-bottom {
-    flex-direction: column;
-    gap: 8px;
-    padding: 8px 0 0 0;
-  }
-}
-
-/* CONTACT MODERN BÖLÜMÜ */
+/* ========================================
+   📞 CONTACT SAYFASI STİLLERİ
+   ======================================== */
 .contact-main {
   flex: 1;
   display: flex;
@@ -529,18 +547,20 @@ body.iletisim-body {
   align-items: center;
   justify-content: flex-start;
   background: #fff;
-  padding: 15px 0 40px 0;
-  margin-left: 200px;
+  padding: 15px 0 clamp(100px, 10vw, 150px) 0;
+  margin-left: clamp(70px, 8vw, 120px);
 }
+
 .contact-flex {
   max-width: 1200px;
   width: 95%;
   margin: 0 auto 32px auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   gap: 48px;
 }
+
 .contact-info {
   flex: 1;
   display: flex;
@@ -549,6 +569,7 @@ body.iletisim-body {
   gap: 24px;
   justify-content: center;
 }
+
 .contact-title {
   font-size: 3.2rem;
   font-family: 'Poppins', sans-serif;
@@ -558,16 +579,20 @@ body.iletisim-body {
   letter-spacing: -1px;
   line-height: 1.1;
 }
+
 .contact-dot {
   color: #222;
 }
+
 .contact-desc {
   font-size: 1.2rem;
   color: #000000;
   margin-bottom: 12px;
+  margin-top: clamp(-30px, -3vw, -20px);
   line-height: 1.5;
   font-weight: 400;
 }
+
 /* CONTACT SOCIALS GRID TASARIMI */
 .contact-socials {
   display: grid;
@@ -576,6 +601,7 @@ body.iletisim-body {
   margin-bottom: 8px;
   margin-top: 24px;
 }
+
 .contact-social {
   display: flex;
   align-items: center;
@@ -591,6 +617,7 @@ body.iletisim-body {
   width: fit-content;
   transition: color 0.2s;
 }
+
 .contact-social img {
   width: 54px;
   height: 54px;
@@ -600,36 +627,158 @@ body.iletisim-body {
   box-shadow: 0 1px 6px rgba(0,0,0,0.10);
   padding: 6px;
 }
-.contact-social.linkedin img {
+
+.contact-social.linkedin img,
+.contact-social.instagram img,
+.contact-social.whatsapp img,
+.contact-social.email img {
   background: #000000;
 }
-.contact-social.instagram img {
-  background: #000000;
-}
-.contact-social.whatsapp img {
-  background: #000000;
-}
-.contact-social.linkedin {
+
+.contact-social.linkedin,
+.contact-social.instagram,
+.contact-social.whatsapp,
+.contact-social.email {
   color: #000000;
 }
-.contact-social.instagram {
-  color: #000000;
+
+.mobile-only {
+  display: none;
+  margin-top: clamp(90px, 8vw, 120px);
+  margin-bottom: clamp(150px, 12vw, 200px);
 }
-.contact-social.whatsapp {
-  color: #000000;
-}
+
 .contact-social:hover {
   text-decoration: underline;
   opacity: 0.85;
 }
-@media (max-width: 700px) {
-  .contact-socials {
-    grid-template-columns: 1fr;
-    gap: 18px 0;
-  }
-  .contact-social {
-    justify-content: flex-start;
-  }
+
+/* ========================================
+   📩 MODERN İLETİŞİM KARTI
+   ======================================== */
+.contact-card {
+  max-width: 600px;
+  width: 100%;
+  margin: 40px auto 0 auto;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.contact-card-content {
+  padding: 40px;
+  text-align: center;
+}
+
+.contact-card-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #181818 0%, #333 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.contact-card-icon i {
+  font-size: 32px;
+  color: #fff;
+}
+
+.contact-card-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #181818;
+  margin: 0 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.contact-card-desc {
+  font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0 0 32px 0;
+  font-weight: 400;
+}
+
+.contact-card-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact-card-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1rem;
+  color: #181818;
+  background: #fafafa;
+  resize: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.contact-card-textarea:focus {
+  outline: none;
+  border-color: #181818;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(24, 24, 24, 0.1);
+}
+
+.contact-card-textarea::placeholder {
+  color: #999;
+}
+
+.contact-card-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #181818 0%, #333 100%);
+  color: #fff;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+}
+
+.contact-card-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #333 0%, #181818 100%);
+}
+
+.contact-card-button:active {
+  transform: translateY(0);
+}
+
+.contact-card-button i {
+  font-size: 16px;
+  transition: transform 0.3s ease;
+}
+
+.contact-card-button:hover i {
+  transform: translateX(4px);
 }
 
 .contact-image-wrap {
@@ -637,12 +786,14 @@ body.iletisim-body {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-bottom: clamp(70px, 6vw, 100px);
 }
+
 .contact-image {
   max-width: 270px;
   width: 100%;
   aspect-ratio: 1/1;
-  border-radius: 50%; /* Tam yuvarlak çerçeve */
+  border-radius: 50%;
   box-shadow: 0 8px 32px rgba(0,0,0,0.13), 0 2px 8px rgba(0,0,0,0.06);
   background: #fff;
   object-fit: cover;
@@ -650,18 +801,27 @@ body.iletisim-body {
   display: block;
   margin: 0 auto;
 }
+
+/* CONTACT FORM STİLLERİ */
 .contact-form-wrap {
   width: 100%;
-  max-width: 900px;
+  max-width: 90%;
+  box-sizing: border-box;
+  text-align: left;
   background: #fafafa;
   border-radius: 18px;
   box-shadow: 0 2px 16px rgba(0,0,0,0.06);
-  padding: 36px 32px 32px 32px;
+  padding: 24px;
+  box-sizing: border-box;
   margin: 0 auto;
   margin-top: 70px;
-  margin-left: 300px;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  position: relative;
+  left: 0;
 }
+
 .form-title {
   font-size: 2rem;
   font-weight: 700;
@@ -669,20 +829,24 @@ body.iletisim-body {
   margin-bottom: 24px;
   font-family: 'Poppins', sans-serif;
 }
+
 .contact-form {
   width: 100%;
 }
+
 .form-row {
   display: flex;
   gap: 24px;
   margin-bottom: 18px;
 }
+
 .form-group {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
+
 .form-group label {
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
@@ -690,6 +854,7 @@ body.iletisim-body {
   margin-bottom: 6px;
   font-weight: 500;
 }
+
 .form-group input,
 .form-group textarea {
   width: 100%;
@@ -703,6 +868,7 @@ body.iletisim-body {
   margin-bottom: 2px;
   transition: border 0.2s;
 }
+
 .form-group input:focus,
 .form-group textarea:focus {
   border: 1.5px solid #0077b5;
@@ -712,9 +878,11 @@ body.iletisim-body {
 .form-group textarea {
   resize: none;
 }
+
 .form-group.full-width {
   flex: 2;
 }
+
 .form-submit {
   background: #222;
   color: #fff;
@@ -727,33 +895,14 @@ body.iletisim-body {
   margin-top: 8px;
   transition: background 0.2s;
 }
+
 .form-submit:hover {
   background: #0077b5;
 }
-@media (max-width: 900px) {
-  .contact-flex {
-    flex-direction: column;
-    gap: 32px;
-    align-items: center;
-  }
-  .contact-info, .contact-image-wrap {
-    width: 100%;
-    align-items: center;
-    text-align: center;
-  }
-  .contact-info {
-    align-items: center;
-  }
-  .contact-form-wrap {
-    padding: 24px 8px 20px 8px;
-  }
-  .form-row {
-    flex-direction: column;
-    gap: 0;
-  }
-}
 
-/* 🎯 HAKKIMDA SAYFASI - 3 Bölümlü Fotoğraf Animasyon Stilleri */
+/* ========================================
+   🎯 HAKKIMDA SAYFASI STİLLERİ
+   ======================================== */
 .hakkimda-main {
   padding-top: 25px;
   min-height: 100vh;
@@ -763,7 +912,10 @@ body.iletisim-body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
-  height: 70vh;
+  aspect-ratio: 3 / 1;
+  max-height: 700px;
+  min-height: 300px;
+  height: auto;
   display: flex;
   position: relative;
   overflow: hidden;
@@ -782,18 +934,10 @@ body.iletisim-body {
   clip-path: polygon(0 0, 100% 0, 85% 100%, 15% 100%);
 }
 
-.hakkimda-section:nth-child(1) {
-  clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
-}
-
-.hakkimda-section:nth-child(2) {
-  clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
-
-}
-
+.hakkimda-section:nth-child(1),
+.hakkimda-section:nth-child(2),
 .hakkimda-section:nth-child(3) {
   clip-path: polygon(15% 0, 100% 0, 85% 100%, 0% 100%);
-
 }
 
 .hakkimda-section:hover {
@@ -879,76 +1023,10 @@ body.iletisim-body {
   transition: transform 0.3s ease, opacity 0.3s ease, max-height 0.4s ease, margin-top 0.3s ease;
 }
 
-/* Responsive tasarım */
-@media (max-width: 768px) {
-  .hakkimda-container {
-    flex-direction: column;
-    height: auto;
-    max-height: none;
-  }
-  
-  .hakkimda-section {
-    height: 60vh;
-    flex: none;
-    clip-path: none;
-    margin-left: 0;
-  }
-  
-  .hakkimda-section:hover {
-    height: 70vh;
-    flex: none;
-  }
-  
-  .hakkimda-section:not(:hover) {
-    height: 50vh;
-    flex: none;
-  }
-  
-  .hakkimda-overlay {
-    padding: 30px 20px;
-  }
-  
-  .hakkimda-title {
-    font-size: 2rem;
-  }
-  
-  .hakkimda-description {
-    font-size: 1rem;
-  }
-}
 
-@media (max-width: 480px) {
-  .hakkimda-container {
-    height: auto;
-    padding: 0 10px;
-  }
-  
-  .hakkimda-section {
-    height: 50vh;
-  }
-  
-  .hakkimda-section:hover {
-    height: 60vh;
-  }
-  
-  .hakkimda-section:not(:hover) {
-    height: 40vh;
-  }
-  
-  .hakkimda-overlay {
-    padding: 20px 15px;
-  }
-  
-  .hakkimda-title {
-    font-size: 1.5rem;
-  }
-  
-  .hakkimda-description {
-    font-size: 0.9rem;
-  }
-}
-
-/* 🎯 BİZ KİMİZ? BÖLÜMÜ STİLLERİ */
+/* ========================================
+   🎯 BİZ KİMİZ? BÖLÜMÜ STİLLERİ
+   ======================================== */
 .biz-kimiz-container {
   max-width: 1200px;
   margin: 80px auto 0 auto;
@@ -1046,12 +1124,175 @@ body.iletisim-body {
   letter-spacing: 1px;
 }
 
-/* Responsive tasarım */
+/* ========================================
+   🎯 PROJELER BAŞLIK ALANI STİLLERİ
+   ======================================== */
+.projeler-title-section {
+  padding: 80px 0 60px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.projeler-title-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.projeler-title-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.projeler-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 400;
+  color: #181818;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  position: relative;
+  display: inline-block;
+}
+
+.projeler-title::after {
+  content: '';
+  position: absolute;
+  bottom: -7px;
+  width: clamp(680px, calc(90vw + 40px), 1090px);
+  left: clamp(51px, calc(6vw + 11px), 101px);
+  height: 2px;
+  background: linear-gradient(90deg, #181818 0%, #666 100%);
+  border-radius: 2px;
+}
+
+.projeler-title::before {
+  content: 'KADİR KALELİ';
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+  font-family: 'Poppins', sans-serif;
+  font-size: clamp(0.4rem, 1vw, 0.8rem);
+
+  color: #666;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.projeler-subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem; /* %15 küçültme */
+  color: #666;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-top: 0;
+  opacity: 0.8;
+  position: absolute;
+  bottom: 20px;
+  right: 0;
+  text-align: right;
+  padding-right: 0%;
+}
+
+.menu-toggle {
+  display: none; /* Masaüstü için gizli */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  z-index: 1000;
+}
+
+.menu-toggle div {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  transition: all 0.3s ease;
+}
+
+/* ========================================
+   📱 RESPONSIVE TASARIM
+   ======================================== */
+
+
 @media (max-width: 900px) {
+  .site-header,
+  .site-header-projeler {
+    padding: 25px clamp(25px, 6vw, 50px);
+  }
+  
+  .site-header .logo,
+  .site-header-projeler .logo {
+    margin-left: clamp(25px, 6vw, 50px);
+  }
+  
+  .menu-toggle {
+    display: flex;
+    margin-right: clamp(25px, 6vw, 50px);
+  }
+  
+  .projeler-title::after {
+    width: clamp(640px, calc(80vw + 40px), 1040px);
+    left: clamp(41px, calc(5vw + 11px), 91px);
+  }
+  
+  .contact-flex {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+  }
+  
+  .contact-info, .contact-image-wrap {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .contact-info {
+    align-items: center;
+  }
+  
+  .contact-form-wrap {
+    padding: 24px 20px 20px 20px;
+    margin: 0 20px;
+    max-width: calc(100% - 40px);
+    margin-left: 0;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    padding: 24px 0 0 0;
+  }
+  
+  .footer-col-logo, .footer-col-contact {
+    align-items: center;
+  }
+  
+  .footer-col-contact {
+    text-align: center;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px 0 0 0;
+  }
+  
   .biz-kimiz-content {
     flex-direction: column;
     gap: 40px;
-    text-align: center;
+    align-items: center;
   }
   
   .biz-kimiz-text {
@@ -1075,7 +1316,355 @@ body.iletisim-body {
   }
 }
 
+/* Mobil tasarım için ek düzenlemeler */
+@media (max-width: 768px) {
+  .site-header,
+  .site-header-projeler {
+    padding: 20px clamp(20px, 5vw, 40px);
+  }
+  
+  .site-header .logo,
+  .site-header-projeler .logo {
+    margin-left: 0 !important;
+  }
+  
+  .menu-toggle {
+    display: flex;
+    margin-left: auto; /* Sağa yaslanır */
+  }
+
+  .site-header .container,
+  .site-header.shrink .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .site-header .logo,
+  .site-header.shrink .logo {
+    margin-left: 0 !important;
+  }
+
+  .menu-toggle,
+  .site-header.shrink .menu-toggle {
+    margin-left: auto !important;
+  }
+
+  .footer-contact-info {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+
+  nav .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #181818;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 0;
+    display: none; /* Başlangıçta gizli */
+  }
+
+  nav .nav-links.active {
+    display: flex; /* Tıklanınca gösterilecek */
+  }
+  
+  .contact-main {
+    margin-left: 0;
+    padding: 15px 20px 40px 20px;
+    text-align: center;
+  }
+  
+  .contact-flex {
+    flex-direction: column;
+    gap: 32px;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .contact-info {
+    align-items: center;
+    text-align: center;
+  }
+  
+  .contact-socials {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* sabit boşluk */
+    justify-items: center;
+    align-items: center;
+  }
+
+  .contact-social {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .contact-social:last-child {
+    margin-top: 0 !important; /* varsa özel boşluk iptal edilir */
+  }
+  
+  .contact-image-wrap {
+    order: -1;
+    margin-bottom: 20px;
+  }
+  
+  .contact-image {
+    max-width: 300px;
+    width: 100%;
+    height: auto;
+  }
+  
+  .contact-card {
+    display: none;
+  }
+  
+  .contact-card-content {
+    padding: 30px 20px;
+  }
+  
+  .contact-card-title {
+    font-size: 1.8rem;
+  }
+  
+  .contact-card-desc {
+    font-size: 1rem;
+  }
+  
+  .contact-card-textarea {
+    min-height: 100px;
+    padding: 16px;
+  }
+  
+  .contact-card-button {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+  
+  .contact-form-wrap {
+    display: none;
+  }
+  
+  .mobile-only {
+    display: flex !important;
+  }
+  
+  .contact-form-wrap {
+    padding: 20px 15px;
+    margin: 0 15px;
+    max-width: calc(100% - 30px);
+    margin-left: 0;
+  }
+
+  .plan-render-row {
+    flex-direction: column;
+    gap: 24px;
+    padding: 0 12px;
+  }
+
+  .plan-render-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+  .plan-render-wrapper .img-wrapper.render .render-text {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  z-index: 3;
+  width: 40%;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  }
+
+  .plan-render-wrapper .img-wrapper.render .render-text h3 {
+    font-size: 18px; /* %35–40 küçültme */
+    margin-bottom: 10px;
+  }
+
+  .plan-render-wrapper .img-wrapper.render .render-text p {
+    font-size: 12.5px; /* %35–40 küçültme */
+    line-height: 1.4;
+  }
+  
+  .form-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+  }
+
+
+  /* === HAKKIMDA === */
+
+  .hakkimda-container {
+  flex-direction: column;
+  gap: 24px;
+  padding: 0 16px;
+  height: auto;
+  max-height: none;
+  aspect-ratio: auto;
+}
+
+.hakkimda-section {
+  clip-path: none;
+  height: auto;
+  min-height: 300px;
+  width: 100%;
+  flex: none;
+  transition: none;
+  transform: none;
+}
+
+.hakkimda-section:hover {
+  flex: none;
+  transform: none;
+}
+
+.hakkimda-overlay {
+  padding: 20px;
+  justify-content: flex-end;
+}
+
+.hakkimda-title {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.hakkimda-description {
+  font-size: 0.85rem;
+  max-height: 0; /* Başlangıçta gizli */
+  opacity: 0; /* Başlangıçta görünmez */
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  margin-top: 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hakkimda-section:hover .hakkimda-description {
+  opacity: 1;
+  max-height: 500px;
+  transform: translateY(0);
+  margin-top: 10px;
+}
+
+.hakkimda-section img {
+  object-fit: cover;
+  width: 100%;
+  height: 300px; /* Sabit yükseklik - hepsi aynı */
+}
+
+.hakkimda-section:nth-child(3) { 
+  background-color: white;
+}
+
+  
+  .projeler-title-section {
+    position: relative;
+    padding-bottom: 30px;
+  }
+
+  .projeler-title {
+    font-size: 2.2rem;
+    position: relative;
+  }
+
+  .projeler-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    margin-left: 20px;
+    width: 100%;
+    height: 2px;
+    background-color: white;
+  }
+
+.projeler-title::before {
+  position: absolute;
+  font-size: 0.6rem;
+  top: 105%;
+  left: 0;
+}}
+
+
+@media (max-width: 700px) {
+  .contact-main {
+    padding: 15px 15px 40px 15px;
+  }
+  
+  .contact-socials {
+    grid-template-columns: 1fr;
+    gap: 18px 0;
+  }
+  
+  .contact-social {
+    justify-content: center;
+  }
+  
+  .mobile-only {
+    display: flex !important;
+  }
+}
+
 @media (max-width: 480px) {
+  .site-header,
+  .site-header-projeler {
+    padding: 15px clamp(15px, 4vw, 30px);
+  }
+  
+  .site-header .logo,
+  .site-header-projeler .logo {
+    margin-left: clamp(15px, 4vw, 30px);
+  }
+  
+  .menu-toggle {
+    margin-right: clamp(15px, 4vw, 30px);
+  }
+  
+  .hakkimda-container {
+    height: auto;
+    padding: 0 10px;
+  }
+  
+  .hakkimda-section {
+    height: 50vh;
+  }
+  
+  .hakkimda-section:hover {
+    height: 60vh;
+  }
+  
+  .hakkimda-section:not(:hover) {
+    height: 40vh;
+  }
+  
+  .hakkimda-overlay {
+    padding: 20px 15px;
+  }
+  
+  .hakkimda-title {
+    font-size: 1.5rem;
+  }
+  
+  .hakkimda-description {
+    font-size: 0.9rem;
+  }
+  
   .biz-kimiz-container {
     padding: 0 15px;
     margin-top: 60px;
@@ -1097,107 +1686,7 @@ body.iletisim-body {
   .biz-kimiz-logo {
     width: 200px;
   }
-
-}
-
-/* 🎯 PROJELER BAŞLIK ALANI STİLLERİ */
-.projeler-title-section {
-
-  padding: 80px 0 60px 0;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.projeler-title-section::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
   
-  pointer-events: none;
-}
-
-.projeler-title-section .container {
-  position: relative;
-  z-index: 2;
-}
-
-.projeler-title {
-  font-family: 'Poppins', sans-serif;
-  font-size: 3.6rem;
-  font-weight: 400;
-  color: #181818;
-  margin-bottom: 20px;
-  letter-spacing: 2px;
-  position: relative;
-  display: inline-block;
-}
-
-.projeler-title::after {
-  content: '';
-  position: absolute;
-  bottom: -7px;
-  left: 80px;
-  width: 1130px;
-  height: 3px;
-  background: linear-gradient(90deg, #181818 0%, #666 100%);
-  border-radius: 2px;
-}
-
-.projeler-title::before {
-  content: 'KADİR KALELİ';
-  position: absolute;
-  bottom: -13px;
-  left: 0;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.63rem;
-  color: #666;
-  font-weight: 400;
-  letter-spacing: 1px;
-}
-
-.projeler-subtitle {
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.56rem;
-  color: #666;
-  font-weight: 400;
-  letter-spacing: 1px;
-  margin-top: 0;
-  opacity: 0.8;
-  position: absolute;
-  bottom: 20px;
-  right: 0;
-}
-
-/* Responsive tasarım için medya sorguları */
-@media (max-width: 768px) {
-  .projeler-title-section {
-    padding: 60px 0 40px 0;
-  }
-  
-  .projeler-title {
-    font-size: 2.4rem;
-    letter-spacing: 1.5px;
-  }
-  
-  .projeler-title::after {
-    left: 60px;
-    width: calc(100% + 360px);
-  }
-  
-  .projeler-title::before {
-    font-size: 0.585rem;
-  }
-  
-  .projeler-subtitle {
-    font-size: 0.3rem;
-  }
-}
-
-@media (max-width: 480px) {
   .projeler-title-section {
     padding: 50px 0 30px 0;
   }
@@ -1208,8 +1697,8 @@ body.iletisim-body {
   }
   
   .projeler-title::after {
-    left: 50px;
-    width: calc(100% + 320px);
+    left: 51px;
+    width: calc(100% + 640px);
   }
   
   .projeler-title::before {
@@ -1219,4 +1708,21 @@ body.iletisim-body {
   .projeler-subtitle {
     font-size: 0.27rem;
   }
+  .contact-main {
+    padding: 15px 15px 40px 15px;
+  }
+  
+  .contact-image {
+    max-width: 250px;
+  }
+  
+  .contact-social {
+    font-size: 1rem;
+  }
+  
+  .contact-form-wrap {
+    padding: 16px 12px;
+    max-width: 90%;
+  }
 }
+
