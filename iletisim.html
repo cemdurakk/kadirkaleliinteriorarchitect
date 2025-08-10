@@ -2,7 +2,8 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=1920, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta http-equiv="X-Frame-Options" content="DENY" />
   <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
@@ -12,19 +13,20 @@
   <meta name="keywords" content="Kadir Kaleli iletişim, iç mimar iletişim, iç mimarlık projeleri iletişim, Instagram, LinkedIn, WhatsApp" />
   <meta name="author" content="Kadir Kaleli" />
   <meta name="language" content="tr" />
-  <meta property="og:title" content="KK Design | İletişim - Kadir Kaleli" />
+  <meta property="og:title" content="Kadir Kaleli | İletişim" />
   <meta property="og:description" content="Kadir Kaleli ile iletişim. İç mimarlık projeleri için iletişime geçin." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://kadirkaleli.com/iletisim.html" />
   <meta property="og:image" content="https://kadirkaleli.com/images/KadirKaleliLogoBeyaz.png" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="KK Design | İletişim - Kadir Kaleli" />
+  <meta name="twitter:title" content="Kadir Kaleli | İletişim" />
   <meta name="twitter:description" content="Kadir Kaleli ile iletişim. İç mimarlık projeleri için iletişime geçin." />
-  <title>KK Design | İletişim</title>
+  <title>Kadir Kaleli | İletişim</title>
 
   <!-- 🎨 CSS ve Google Fontlar -->
   <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   
   <!-- 🎨 Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
@@ -32,6 +34,9 @@
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="manifest" href="/site.webmanifest" />
+  <!-- Font Awesome for hamburger icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
 </head>
 
 <body class="iletisim-body">
@@ -44,6 +49,12 @@
       <a href="index.html">
         <img src="images/KadirKaleliLogoBeyaz.png" alt="KK Design Logo" class="logo" />
       </a>
+  
+      <!-- Mobil Menü Toggle -->
+      <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
+  
       <!-- Menü -->
       <nav>
         <ul class="nav-links">
@@ -55,6 +66,7 @@
       </nav>
     </div>
   </header>
+  
 
   <!-- 🎯 İLETİŞİM BAŞLIK ALANI -->
   <section class="projeler-title-section">
@@ -88,6 +100,9 @@
           <a href="https://wa.me/905439461284" class="contact-social whatsapp" target="_blank" rel="noopener noreferrer">
             <img src="images/whatsappBeyaz.png" alt="WhatsApp" /> WhatsApp
           </a>
+          <a href="mailto:kadirkalelidesign@gmail.com" class="contact-social email mobile-only" target="_blank" rel="noopener noreferrer">
+            <img src="images/gmailBeyaz.png" alt="Email" /> Email
+          </a>
         </div>
       </div>
 
@@ -97,28 +112,31 @@
       </div>
     </div>
 
-    <!-- 📩 İLETİŞİM FORMU -->
-    <div class="contact-form-wrap">
-      <h2 class="form-title">Bana mail gönderebilirsiniz.</h2>
-      <form class="contact-form" id="contactForm" autocomplete="off">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="name">Ad Soyad</label>
-            <input type="text" id="name" name="name" required maxlength="100" pattern="[A-Za-zğüşıöçĞÜŞİÖÇ\s]+" title="Sadece harf ve boşluk karakterleri kullanabilirsiniz" />
-          </div>
-          <div class="form-group">
-            <label for="email">Mail</label>
-            <input type="email" id="email" name="email" required maxlength="254" />
-          </div>
+    <!-- 📩 MODERN İLETİŞİM KARTI -->
+    <div class="contact-card">
+      <div class="contact-card-content">
+        <div class="contact-card-icon">
+          <i class="fas fa-envelope"></i>
         </div>
-        <div class="form-row">
-          <div class="form-group full-width">
-            <label for="message">Mesaj</label>
-            <textarea id="message" name="message" rows="4" required maxlength="1000" placeholder="Mesajınızı buraya yazın..."></textarea>
-          </div>
-        </div>
-        <button type="submit" class="form-submit">Gönder</button>
-      </form>
+        <h3 class="contact-card-title">Mail Gönder</h3>
+        <p class="contact-card-desc">
+          Projeleriniz için detaylı bilgi almak istiyorsanız,<br>
+          doğrudan mail gönderebilirsiniz.
+        </p>
+        <form class="contact-card-form" id="contactCardForm">
+          <textarea 
+            class="contact-card-textarea" 
+            placeholder="Mesajınızı buraya yazın..." 
+            rows="4" 
+            maxlength="1000"
+            required
+          ></textarea>
+          <button type="submit" class="contact-card-button">
+            <span>Mail Gönder</span>
+            <i class="fas fa-arrow-right"></i>
+          </button>
+        </form>
+      </div>
     </div>
 
   </main>
