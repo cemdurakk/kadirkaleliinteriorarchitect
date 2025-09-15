@@ -37,15 +37,15 @@ document.addEventListener("DOMContentLoaded", function () {
     const sliderTexts = [
       {
         title: "Hoş Geldiniz",
-        desc: "İç mimaride estetiğin ve işlevselliğin buluşma noktası."
+        desc: "Tasarımda estetiğin ve işlevselliğin buluşma noktası."
       },
       {
-        title: "Ofis Tasarımları",
-        desc: "Modern ve fonksiyonel çalışma alanları."
-      },
-      {
-        title: "Mutfak Projeleri",
+        title: "Mutfak Tasarımları",
         desc: "Şıklık ve pratiklik bir arada."
+      },
+      {
+        title: "Kafe Tasarımları",
+        desc: "Konforlu ve Estetik tasarımlar sizlerle."
       }
     ];
 
@@ -95,7 +95,7 @@ document.addEventListener("DOMContentLoaded", function () {
       slideInterval = setInterval(() => {
         const nextIndex = currentSlide === slides.length - 1 ? 0 : currentSlide + 1;
         showSlide(nextIndex, 'next');
-      }, 7000); // 7 saniyede bir geçiş
+      }, 4000); // 4 saniyede bir geçiş
     }
 
     // Slider başlatıcı fonksiyon
@@ -226,4 +226,41 @@ document.addEventListener("DOMContentLoaded", function () {
       window.location.href = mailtoLink;
     });
   }
+
+  // ================================
+  // 📩 MODERN İLETİŞİM KARTI - Mailto Fonksiyonu
+  // ================================
+  const contactCardForm = document.getElementById('contactCardForm');
+  if (contactCardForm) {
+    contactCardForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const message = document.querySelector('.contact-card-textarea').value;
+      
+      if (!message.trim()) {
+        alert('Lütfen bir mesaj yazın.');
+        return;
+      }
+      
+      // Mailto linki oluştur
+      const subject = encodeURIComponent('KK Design - İletişim');
+      const body = encodeURIComponent(`Mesaj:\n\n${message}`);
+      const mailtoLink = `mailto:kadirkalelidesign@gmail.com?subject=${subject}&body=${body}`;
+      
+      // Mail uygulamasını aç
+      window.location.href = mailtoLink;
+    });
+  }
+
+  // ================================
+// 🍔 MOBİL MENÜ TOGGLE
+// ================================
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener("click", function () {
+    navLinks.classList.toggle("active");
+  });
+}
 });
